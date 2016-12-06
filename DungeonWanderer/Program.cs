@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DungeonWanderer.Core;
+using System;
 
 namespace DungeonWanderer
 {
@@ -13,7 +14,7 @@ namespace DungeonWanderer
         [STAThread]
         static void Main()
         {
-            using (var game = new Game1())
+            using (var game = new DWGame())
                 game.Run();
         }
     }

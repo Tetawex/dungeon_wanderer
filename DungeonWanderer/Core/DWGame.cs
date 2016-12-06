@@ -1,20 +1,41 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Artemis;
+using Artemis.Manager;
+using DungeonWanderer.Systems;
+using DungeonWanderer.Components;
+using FarseerPhysics.Dynamics;
+using DungeonWanderer.Templates;
+using System;
+using System.Diagnostics;
 
-namespace DungeonWanderer
+namespace DungeonWanderer.Core
 {
     /// <summary>
     /// This is the main type for your game.
     /// </summary>
-    public class Game1 : Game
+    public class DWGame : Game
     {
-        GraphicsDeviceManager graphics;
-        SpriteBatch spriteBatch;
+        public AssetManager AssetManager { get; private set; }
+        public GameStateManager GameStateManager { get; private set; }
 
-        public Game1()
+        public GraphicsDeviceManager Graphics { get; private set; }
+
+        public DWGame()
         {
-            graphics = new GraphicsDeviceManager(this);
+            Graphics = new GraphicsDeviceManager(this)
+            {
+                IsFullScreen = false,
+                PreferredBackBufferHeight = 720,
+                PreferredBackBufferWidth = 1280,
+                PreferredBackBufferFormat = SurfaceFormat.Color,
+                PreferMultiSampling = false,
+                PreferredDepthStencilFormat = DepthFormat.None
+            };
+            IsMouseVisible = true;
+            Graphics.SynchronizeWithVerticalRetrace = false;
+
             Content.RootDirectory = "Content";
         }
 
@@ -26,8 +47,8 @@ namespace DungeonWanderer
         /// </summary>
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
-
+            AssetManager = new AssetManager();
+            GameStateManager = new GameStateManager(this);
             base.Initialize();
         }
 
@@ -37,10 +58,8 @@ namespace DungeonWanderer
         /// </summary>
         protected override void LoadContent()
         {
-            // Create a new SpriteBatch, which can be used to draw textures.
-            spriteBatch = new SpriteBatch(GraphicsDevice);
-
-            // TODO: use this.Content to load your game content here
+            AssetManager.TextureManager.LoadContent(Content);
+            GameStateManager.CurrentState = GameState.Game;
         }
 
         /// <summary>
@@ -59,11 +78,7 @@ namespace DungeonWanderer
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-                Exit();
-
-            // TODO: Add your update logic here
-
+            GameStateManager.CurrentScreen.Update(gameTime);
             base.Update(gameTime);
         }
 
@@ -73,11 +88,13 @@ namespace DungeonWanderer
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.AliceBlue);
 
-            // TODO: Add your drawing code here
+            GameStateManager.CurrentScreen.Draw(gameTime);
 
             base.Draw(gameTime);
+
+
         }
     }
 }
