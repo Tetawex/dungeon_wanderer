@@ -3,7 +3,6 @@ using Artemis;
 using Artemis.Interface;
 using Microsoft.Xna.Framework;
 using FarseerPhysics.Dynamics;
-using DungeonWanderer.Systems;
 using FarseerPhysics.Common;
 using System.Collections.Generic;
 using FarseerPhysics.Collision.Shapes;

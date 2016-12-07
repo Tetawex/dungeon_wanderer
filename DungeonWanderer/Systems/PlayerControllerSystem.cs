@@ -15,6 +15,7 @@ namespace DungeonWanderer.Systems
         public override void Process(Entity entity, PhysicsComponent physicsComponent, 
             PlayerControllerComponent playerControllerComponent, JumpComponent jumpComponent)
         {
+            //TODO Make controls feel more responsive and less sloppy
             if (Keyboard.GetState().IsKeyDown(Keys.Left))
                 physicsComponent.Body.ApplyLinearImpulse(new Vector2(-0.1f, 0f));
             if (Keyboard.GetState().IsKeyDown(Keys.Right))

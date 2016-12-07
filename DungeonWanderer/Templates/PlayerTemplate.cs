@@ -1,16 +1,11 @@
 ﻿using Artemis;
 using Artemis.Interface;
-using Artemis.System;
 using DungeonWanderer.Components;
-using DungeonWanderer.Systems;
 using FarseerPhysics.Collision.Shapes;
 using FarseerPhysics.Common;
 using FarseerPhysics.Dynamics;
-using FarseerPhysics.Dynamics.Contacts;
-using FarseerPhysics.Factories;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System;
 using System.Collections.Generic;
 
 namespace DungeonWanderer.Templates

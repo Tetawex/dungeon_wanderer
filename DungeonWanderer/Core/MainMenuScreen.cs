@@ -1,13 +1,5 @@
-﻿
-using System;
-using Microsoft.Xna.Framework;
-using FarseerPhysics.Dynamics;
+﻿using Microsoft.Xna.Framework;
 using Artemis;
-using DungeonWanderer.Components;
-using DungeonWanderer.Systems;
-using Artemis.Manager;
-using DungeonWanderer.Templates;
-using Microsoft.Xna.Framework.Graphics;
 
 namespace DungeonWanderer.Core
 {

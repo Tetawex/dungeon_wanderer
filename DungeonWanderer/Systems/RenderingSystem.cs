@@ -1,11 +1,9 @@
 ﻿using Artemis.System;
-using System;
 using Artemis;
 using DungeonWanderer.Components;
 using Microsoft.Xna.Framework.Graphics;
 using Artemis.Attributes;
 using Artemis.Manager;
-using System.Diagnostics;
 using Microsoft.Xna.Framework;
 
 namespace DungeonWanderer.Systems
@@ -25,9 +23,7 @@ namespace DungeonWanderer.Systems
         public override void Process(Entity entity, TransformComponent transformComponent, RenderingComponent renderingComponent)
         {
             Vector2 dimension = transformComponent.Dimension * camera.ScalingFactor;
-
             Vector2 rotationOrigin = new Vector2(dimension.X/2,dimension.Y / 2);
-
             Vector2 renderingPosition = new Vector2(1, -1) * transformComponent.Position * camera.ScalingFactor + camera.BitmapPosition;
 
             spriteBatch.Draw(

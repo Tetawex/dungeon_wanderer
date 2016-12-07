@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using Microsoft.Xna.Framework;
 using FarseerPhysics.Dynamics;
 using Artemis;
@@ -51,6 +50,9 @@ namespace DungeonWanderer.Core
             camera = player.GetComponent<CameraComponent>();
 
             entityWorld.SystemManager.SetSystem<RenderingSystem>(new RenderingSystem(camera, spriteBatch,game.GraphicsDevice), GameLoopType.Draw);
+
+            //TODO Imlement player respawn, health systems, obstacles and enemies spawn systems,
+            //background /foreground static images, scene loading from a json file
 
         }
 

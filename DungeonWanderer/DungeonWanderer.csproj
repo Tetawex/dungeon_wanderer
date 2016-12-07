@@ -44,7 +44,6 @@
     <Compile Include="Components\RenderingComponent.cs" />
     <Compile Include="Components\SelfRotatingPlatformComponent.cs" />
     <Compile Include="Core\AssetManager.cs" />
-    <Compile Include="Core\Dictionary.cs" />
     <Compile Include="Core\DWGame.cs" />
     <Compile Include="Core\MainMenuScreen.cs" />
     <Compile Include="Core\GameScreen.cs" />
