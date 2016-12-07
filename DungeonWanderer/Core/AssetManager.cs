@@ -18,8 +18,8 @@ namespace DungeonWanderer.Core
         }
         public void LoadContent(ContentManager contentManager)
         {
-            textures["iuper"] = contentManager.Load<Texture2D>("iuper");
-            textures["terrain"] = contentManager.Load<Texture2D>("terrain");
+            textures["playerbox"] = contentManager.Load<Texture2D>("playerbox");
+            textures["terrainbox"] = contentManager.Load<Texture2D>("terrainbox");
         }
         public void UnloadContent()
         {

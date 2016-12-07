@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Artemis.Attributes;
 using Artemis.Manager;
 using Microsoft.Xna.Framework;
+using System.Diagnostics;
 
 namespace DungeonWanderer.Systems
 {
@@ -23,7 +24,6 @@ namespace DungeonWanderer.Systems
         public override void Process(Entity entity, TransformComponent transformComponent, RenderingComponent renderingComponent)
         {
             Vector2 dimension = transformComponent.Dimension * camera.ScalingFactor;
-            Vector2 rotationOrigin = new Vector2(dimension.X/2,dimension.Y / 2);
             Vector2 renderingPosition = new Vector2(1, -1) * transformComponent.Position * camera.ScalingFactor + camera.BitmapPosition;
 
             spriteBatch.Draw(
@@ -33,11 +33,12 @@ namespace DungeonWanderer.Systems
                  Color.White,
                  -transformComponent.Rotation,
                  new Vector2(
-                     renderingComponent.Texture.Width / 2,
-                     renderingComponent.Texture.Height / 2),
+                     renderingComponent.Texture.Width / 2f,
+                     renderingComponent.Texture.Height / 2f),
                  new Vector2(dimension.X / renderingComponent.Texture.Width, dimension.Y / renderingComponent.Texture.Height),
                  SpriteEffects.None,
                  renderingComponent.Z);
+            Debug.WriteLine(dimension);
         }
     }
 }

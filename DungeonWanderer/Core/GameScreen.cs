@@ -42,17 +42,17 @@ namespace DungeonWanderer.Core
             entityWorld.SetEntityTemplate(BasicRotatingTerrainTemplate.Name, new BasicRotatingTerrainTemplate());
 
             Entity player=entityWorld.CreateEntityFromTemplate(PlayerTemplate.Name, new Vector2(1, 1), box2DWorld, 
-                game.AssetManager.TextureManager.GetTexture("iuper"));
+                game.AssetManager.TextureManager.GetTexture("playerbox"));
             entityWorld.CreateEntityFromTemplate(BasicTerrainTemplate.Name, new Vector2(1, -2f),
-                box2DWorld, game.AssetManager.TextureManager.GetTexture("terrain"), 0f);
+                box2DWorld, game.AssetManager.TextureManager.GetTexture("terrainbox"), 0f);
             entityWorld.CreateEntityFromTemplate(BasicRotatingTerrainTemplate.Name, new Vector2(6, -3f),
-                box2DWorld, game.AssetManager.TextureManager.GetTexture("terrain"), Math.PI / 2);
+                box2DWorld, game.AssetManager.TextureManager.GetTexture("terrainbox"), Math.PI / 2);
             camera = player.GetComponent<CameraComponent>();
 
             entityWorld.SystemManager.SetSystem<RenderingSystem>(new RenderingSystem(camera, spriteBatch,game.GraphicsDevice), GameLoopType.Draw);
 
             //TODO Imlement player respawn, health systems, obstacles and enemies spawn systems,
-            //background /foreground static images, scene loading from a json file
+            //background /foreground static images,possibly tilemaps, scene loading from a json file
 
         }
 
