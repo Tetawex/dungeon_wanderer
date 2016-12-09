@@ -38,7 +38,6 @@ namespace DungeonWanderer.Systems
                  new Vector2(dimension.X / renderingComponent.Texture.Width, dimension.Y / renderingComponent.Texture.Height),
                  SpriteEffects.None,
                  renderingComponent.Z);
-            Debug.WriteLine(dimension);
         }
     }
 }
