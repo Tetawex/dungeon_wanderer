@@ -38,6 +38,8 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Components\Animation.cs" />
+    <Compile Include="Components\AnimationComponent.cs" />
     <Compile Include="Components\CameraComponent.cs" />
     <Compile Include="Components\JumpComponent.cs" />
     <Compile Include="Components\PlayerControllerComponent.cs" />
@@ -49,6 +51,7 @@
     <Compile Include="Core\GameScreen.cs" />
     <Compile Include="Core\GameStateManager.cs" />
     <Compile Include="Core\Screen.cs" />
+    <Compile Include="Systems\AnimationSystem.cs" />
     <Compile Include="Systems\CameraUpdateSystem.cs" />
     <Compile Include="Systems\MovementSystem.cs" />
     <Compile Include="Components\PhysicsComponent.cs" />
