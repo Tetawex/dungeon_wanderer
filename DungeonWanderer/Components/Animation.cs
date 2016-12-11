@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace DungeonWanderer.Components
 {
-    class Animation
+    public class Animation
     {
 
         public Texture2D[] Textures { get; set; }

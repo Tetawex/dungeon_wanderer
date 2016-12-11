@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework.Content;
+﻿using DungeonWanderer.Components;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
@@ -27,6 +28,32 @@ namespace DungeonWanderer.Core
             {
                 pair.Value.Dispose();
             }
+        }
+    }
+    public class AnimationManager
+    {
+        private Dictionary<String, Animation> animations = new Dictionary<String, Animation>();
+        public Animation GetAnimation(String name)
+        {
+            return animations[name];
+        }
+        public void LoadAnimations(TextureManager textureManager)
+        {
+            animations["player_move"] = new Animation(new Texture2D[] 
+            {
+                textureManager.GetTexture("player_move_0"),
+                textureManager.GetTexture("player_move_1")
+            });
+            animations["player_fly"] = new Animation(new Texture2D[]
+            {
+                textureManager.GetTexture("player_fly_0"),
+                textureManager.GetTexture("player_fly_1")
+            });
+            animations["player_stay"] = new Animation(new Texture2D[]
+            {
+                textureManager.GetTexture("player_stay_0"),
+                textureManager.GetTexture("player_stay_1")
+            });
         }
     }
 }
