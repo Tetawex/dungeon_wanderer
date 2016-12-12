@@ -33,7 +33,6 @@ namespace DungeonWanderer.Templates
 
             TransformComponent pc = new TransformComponent(position,new Vector2(1f, 1.5f));
 
-
             World box2DWorld = (World)args[1];
             Body body = new Body(box2DWorld);
             CircleShape circle = new CircleShape(0.5f,1f);

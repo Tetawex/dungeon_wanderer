@@ -8,14 +8,18 @@ namespace DungeonWanderer.Components
 
         public Texture2D[] Textures { get; set; }
 
-        // public int[] TimeBetweenFrames { get; set; }
+        public int TimeBetweenFrames { get; set; }
 
 
-        public Animation(Texture2D[] textures)
+        public Animation(Texture2D[] textures, int timeBetweenFrames)
         {
             Textures = textures;
+            TimeBetweenFrames = timeBetweenFrames;
         }
 
-
+        public Animation(int timeBetweenFrames)
+        {
+            TimeBetweenFrames = timeBetweenFrames;
+        }
     }
 }
