@@ -1,4 +1,5 @@
-﻿using DungeonWanderer.Core;
+﻿using DungeonWanderer.Components;
+using DungeonWanderer.Core;
 using System;
 
 namespace DungeonWanderer
@@ -14,8 +15,19 @@ namespace DungeonWanderer
         [STAThread]
         static void Main()
         {
-            using (var game = new DWGame())
-                game.Run();
+            AnimationComponent animComp = new AnimationComponent(new Animation(40));
+            if (animComp.sw.IsRunning)
+                animComp.sw.Start();
+
+            if (animComp.sw.ElapsedTicks > animComp.Animation.TimeBetweenFrames)
+            {
+                Console.WriteLine("Ura");
+
+                animComp.sw.Reset();
+            }
+
+                //using (var game = new DWGame())
+                //game.Run();
         }
     }
 }
