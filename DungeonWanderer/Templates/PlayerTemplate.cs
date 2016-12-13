@@ -1,6 +1,7 @@
 ﻿using Artemis;
 using Artemis.Interface;
 using DungeonWanderer.Components;
+using DungeonWanderer.Core;
 using FarseerPhysics.Collision.Shapes;
 using FarseerPhysics.Common;
 using FarseerPhysics.Dynamics;
@@ -29,7 +30,7 @@ namespace DungeonWanderer.Templates
             Vector2 position= (Vector2)args[0];
 
             JumpComponent jumpComponent = new JumpComponent();
-
+             
 
             TransformComponent pc = new TransformComponent(position,new Vector2(1f, 1.5f));
 
@@ -63,15 +64,15 @@ namespace DungeonWanderer.Templates
             box2DWorld.BodyList.Add(body);
 
             body.Position = position;
-
-
-
+           
+            
             entity.AddComponent<TransformComponent>(pc);
             entity.AddComponent<PhysicsComponent>(new PhysicsComponent(body));
             entity.AddComponent<RenderingComponent>(new RenderingComponent((Texture2D)args[2]));
             entity.AddComponent<JumpComponent>(jumpComponent);
             entity.AddComponent<PlayerControllerComponent>(new PlayerControllerComponent());
             entity.AddComponent<CameraComponent>(new CameraComponent(new Vector2(0,0)));
+            entity.AddComponent<AnimationComponent>(new AnimationComponent((Animation)args[3])); 
             //entity.AddComponent<SelfRotatingPlatformComponent>(new SelfRotatingPlatformComponent());
 
             return entity;

@@ -9,6 +9,7 @@ namespace DungeonWanderer.Core
     public class AssetManager
     {
         public TextureManager TextureManager { get; private set; } = new TextureManager();
+        public AnimationManager AnimationManager { get; private set; } = new AnimationManager();
     }
     public class TextureManager
     {
@@ -43,17 +44,17 @@ namespace DungeonWanderer.Core
             {
                 textureManager.GetTexture("player_move_0"),
                 textureManager.GetTexture("player_move_1")
-            });
+            },500);
             animations["player_fly"] = new Animation(new Texture2D[]
             {
                 textureManager.GetTexture("player_fly_0"),
                 textureManager.GetTexture("player_fly_1")
-            });
+            },700);
             animations["player_stay"] = new Animation(new Texture2D[]
             {
                 textureManager.GetTexture("player_stay_0"),
                 textureManager.GetTexture("player_stay_1")
-            });
+            },700);
         }
     }
 }

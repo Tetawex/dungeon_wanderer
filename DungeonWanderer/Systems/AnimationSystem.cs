@@ -25,7 +25,7 @@ namespace DungeonWanderer.Systems
             if (animComp.sw.IsRunning)
                 animComp.sw.Start();
 
-            if (animComp.sw.ElapsedTicks > animComp.Animation.TimeBetweenFrames)
+            if (animComp.sw.ElapsedMilliseconds > animComp.Animation.TimeBetweenFrames)
             {
                 renComp.Texture = animComp.Animation.Textures[animComp.CurrentFrame];
 
