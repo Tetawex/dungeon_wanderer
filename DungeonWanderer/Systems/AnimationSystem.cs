@@ -8,7 +8,7 @@ using System.Threading;
 
 namespace DungeonWanderer.Systems
 {
-    class AnimationSystem : IntervalEntityProcessingSystem
+    public class AnimationSystem : IntervalEntityProcessingSystem
     {
        
         public AnimationSystem() :
