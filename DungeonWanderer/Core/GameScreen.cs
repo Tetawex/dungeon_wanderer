@@ -13,6 +13,7 @@ namespace DungeonWanderer.Core
     public class GameScreen : Screen
     {
         private CameraComponent camera;
+        private Texture2D background;
         private EntityWorld entityWorld;
         private World box2DWorld;
         public GameScreen(DWGame dwgame) : base(dwgame)
@@ -23,7 +24,7 @@ namespace DungeonWanderer.Core
         {
             spriteBatch.Begin(SpriteSortMode.Deferred, null,SamplerState.PointClamp,
                 null,null,null,null);
-
+            spriteBatch.Draw(background);
             entityWorld.Draw();
 
             spriteBatch.End();
@@ -53,6 +54,8 @@ namespace DungeonWanderer.Core
 
             entityWorld.SystemManager.SetSystem<RenderingSystem>(new RenderingSystem(camera, spriteBatch,game.GraphicsDevice), GameLoopType.Draw);
             entityWorld.SystemManager.SetSystem<AnimationSystem>(new AnimationSystem(), GameLoopType.Update);
+
+            background = game.AssetManager.TextureManager.GetTexture("background");
 
             //TODO Imlement player respawn, health systems, obstacles and enemies spawn systems,
             //background /foreground static images,possibly tilemaps, scene loading from a json file
