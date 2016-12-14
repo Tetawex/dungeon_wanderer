@@ -36,7 +36,6 @@ namespace DungeonWanderer.Core
             entityWorld.SystemManager.SetSystem<CameraUpdateSystem>(new CameraUpdateSystem(game.Graphics), GameLoopType.Update);
             entityWorld.SystemManager.SetSystem<PlayerControllerSystem>(new PlayerControllerSystem(), GameLoopType.Update);
             entityWorld.SystemManager.SetSystem<SelfRotatingPlatformtSystem>(new SelfRotatingPlatformtSystem(), GameLoopType.Update);
-            entityWorld.SystemManager.SetSystem<AnimationSystem>(new AnimationSystem(), GameLoopType.Update);
 
             entityWorld.SetEntityTemplate(PlayerTemplate.Name, new PlayerTemplate());
             entityWorld.SetEntityTemplate(BasicTerrainTemplate.Name, new BasicTerrainTemplate());
@@ -51,6 +50,7 @@ namespace DungeonWanderer.Core
             camera = player.GetComponent<CameraComponent>();
 
             entityWorld.SystemManager.SetSystem<RenderingSystem>(new RenderingSystem(camera, spriteBatch,game.GraphicsDevice), GameLoopType.Draw);
+            entityWorld.SystemManager.SetSystem<AnimationSystem>(new AnimationSystem(), GameLoopType.Update);
 
             //TODO Imlement player respawn, health systems, obstacles and enemies spawn systems,
             //background /foreground static images,possibly tilemaps, scene loading from a json file
