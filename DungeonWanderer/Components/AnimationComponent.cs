@@ -3,9 +3,8 @@ using System.Diagnostics;
 
 namespace DungeonWanderer.Components
 {
-    class AnimationComponent : IComponent
-    {
-        //public Stopwatch sw = new Stopwatch();
+    public class AnimationComponent : IComponent
+    {        
         public int CurrentFrame { get; set; }
         public int ElapsedTicksBeforeNextFrame { get; set; }
         public Animation Animation { get; set; }

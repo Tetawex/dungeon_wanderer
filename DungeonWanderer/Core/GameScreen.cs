@@ -44,9 +44,9 @@ namespace DungeonWanderer.Core
             Entity player=entityWorld.CreateEntityFromTemplate(PlayerTemplate.Name, new Vector2(1, 1), box2DWorld, 
                 game.AssetManager.TextureManager.GetTexture("playerbox"), game.AssetManager.AnimationManager.GetAnimation("player_stay"));
             entityWorld.CreateEntityFromTemplate(BasicTerrainTemplate.Name, new Vector2(1, -2f),
-                box2DWorld, game.AssetManager.TextureManager.GetTexture("terrainbox"), 0f);
+                box2DWorld, game.AssetManager.TextureManager.GetTexture("wall_4x1"), 0f);
             entityWorld.CreateEntityFromTemplate(BasicRotatingTerrainTemplate.Name, new Vector2(6, -3f),
-                box2DWorld, game.AssetManager.TextureManager.GetTexture("terrainbox"), Math.PI / 2);
+                box2DWorld, game.AssetManager.TextureManager.GetTexture("wall_4x1"), Math.PI / 2);
             camera = player.GetComponent<CameraComponent>();
 
             entityWorld.SystemManager.SetSystem<RenderingSystem>(new RenderingSystem(camera, spriteBatch,game.GraphicsDevice), GameLoopType.Draw);
