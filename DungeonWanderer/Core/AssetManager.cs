@@ -24,6 +24,26 @@ namespace DungeonWanderer.Core
             textures["terrainbox"] = contentManager.Load<Texture2D>("terrainbox");
             textures["player_stay_0"] = contentManager.Load<Texture2D>("player_stay_0");
             textures["player_stay_1"] = contentManager.Load<Texture2D>("player_stay_1");
+
+            textures["wall_4x1"] = contentManager.Load<Texture2D>("wall_4x1");
+            textures["wall_3x1"] = contentManager.Load<Texture2D>("wall_3x1");
+            textures["wall_2x1"] = contentManager.Load<Texture2D>("wall_2x1");
+            textures["wall_1x1"] = contentManager.Load<Texture2D>("wall_1x1");
+
+            textures["wall_4x2"] = contentManager.Load<Texture2D>("wall_4x2");
+            textures["wall_3x2"] = contentManager.Load<Texture2D>("wall_3x2");
+            textures["wall_2x2"] = contentManager.Load<Texture2D>("wall_2x2");
+            textures["wall_1x2"] = contentManager.Load<Texture2D>("wall_1x2");
+
+            textures["wall_4x4"] = contentManager.Load<Texture2D>("wall_4x4");
+            textures["wall_3x4"] = contentManager.Load<Texture2D>("wall_3x4");
+            textures["wall_2x4"] = contentManager.Load<Texture2D>("wall_2x4");
+            textures["wall_1x4"] = contentManager.Load<Texture2D>("wall_1x4");
+
+            textures["column"] = contentManager.Load<Texture2D>("column");
+            textures["background_2x2"] = contentManager.Load<Texture2D>("background_2x2");
+            textures["background_3x3"] = contentManager.Load<Texture2D>("background_3x3");
+            textures["background_4x4"] = contentManager.Load<Texture2D>("background_4x4");
         }
         public void UnloadContent()
         {
