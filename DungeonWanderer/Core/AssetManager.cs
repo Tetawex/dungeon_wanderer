@@ -42,12 +42,12 @@ namespace DungeonWanderer.Core
         }
         public void LoadAnimations(TextureManager textureManager)
         {
-            animations["player_move"] = new Animation(new Texture2D[] 
+            animations["player_stay"] = new Animation(new Texture2D[] 
             {
-                textureManager.GetTexture("player_move_0"),
-                textureManager.GetTexture("player_move_1")
+                textureManager.GetTexture("player_stay_0"),
+                textureManager.GetTexture("player_stay_1")
             },500);
-            animations["player_fly"] = new Animation(new Texture2D[]
+            /*animations["player_fly"] = new Animation(new Texture2D[]
             {
                 textureManager.GetTexture("player_fly_0"),
                 textureManager.GetTexture("player_fly_1")
@@ -56,7 +56,7 @@ namespace DungeonWanderer.Core
             {
                 textureManager.GetTexture("player_stay_0"),
                 textureManager.GetTexture("player_stay_1")
-            },700);
+            },700);*/
         }
     }
 }
