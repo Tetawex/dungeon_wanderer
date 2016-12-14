@@ -22,6 +22,8 @@ namespace DungeonWanderer.Core
         {
             textures["playerbox"] = contentManager.Load<Texture2D>("playerbox");
             textures["terrainbox"] = contentManager.Load<Texture2D>("terrainbox");
+            textures["player_stay_0"] = contentManager.Load<Texture2D>("player_stay_0");
+            textures["player_stay_1"] = contentManager.Load<Texture2D>("player_stay_1");
         }
         public void UnloadContent()
         {

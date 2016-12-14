@@ -1,7 +1,6 @@
 ﻿using Artemis;
 using Artemis.Interface;
 using DungeonWanderer.Components;
-using DungeonWanderer.Core;
 using FarseerPhysics.Collision.Shapes;
 using FarseerPhysics.Common;
 using FarseerPhysics.Dynamics;
@@ -27,16 +26,16 @@ namespace DungeonWanderer.Templates
 
             entityWorld.GroupManager.ToString();
 
-            Vector2 position= (Vector2)args[0];
+            Vector2 position = (Vector2)args[0];
 
             JumpComponent jumpComponent = new JumpComponent();
-             
 
-            TransformComponent pc = new TransformComponent(position,new Vector2(1f, 1.5f));
+
+            TransformComponent pc = new TransformComponent(position, new Vector2(1f, 1.5f));
 
             World box2DWorld = (World)args[1];
             Body body = new Body(box2DWorld);
-            CircleShape circle = new CircleShape(0.5f,1f);
+            CircleShape circle = new CircleShape(0.5f, 1f);
             circle.Position = new Vector2(0, 0.5f) - new Vector2(0, 1.5f * 0.5f);
             PolygonShape polygon = new PolygonShape(new Vertices(new List<Vector2>()
             {
@@ -44,12 +43,12 @@ namespace DungeonWanderer.Templates
                 new Vector2(-0.5f, 1.5f)-new Vector2(0,1.5f*0.5f),
                 new Vector2(0.5f, 1.5f)-new Vector2(0,1.5f*0.5f),
                 new Vector2(0.5f, 0.5f)-new Vector2(0,1.5f*0.5f)
-            }),1f);
+            }), 1f);
             body.CreateFixture(polygon);
             body.Friction = 0.1f;
 
             Fixture feet = body.CreateFixture(circle);
-            feet.OnCollision+=(f1,f2,contact)=>
+            feet.OnCollision += (f1, f2, contact) =>
             {
                 jumpComponent.Grounded = true;
                 return true;
@@ -58,21 +57,21 @@ namespace DungeonWanderer.Templates
             {
                 jumpComponent.Grounded = false;
             };
-            body.FixedRotation = true;       
+            body.FixedRotation = true;
             //body.CollisionGroup = MovementSystem.COLLISION_GROUP_PLAYER;
             body.BodyType = BodyType.Dynamic;
             box2DWorld.BodyList.Add(body);
 
             body.Position = position;
-           
-            
+
+
             entity.AddComponent<TransformComponent>(pc);
             entity.AddComponent<PhysicsComponent>(new PhysicsComponent(body));
             entity.AddComponent<RenderingComponent>(new RenderingComponent((Texture2D)args[2]));
             entity.AddComponent<JumpComponent>(jumpComponent);
             entity.AddComponent<PlayerControllerComponent>(new PlayerControllerComponent());
-            entity.AddComponent<CameraComponent>(new CameraComponent(new Vector2(0,0)));
-            entity.AddComponent<AnimationComponent>(new AnimationComponent((Animation)args[3])); 
+            entity.AddComponent<CameraComponent>(new CameraComponent(new Vector2(0, 0)));
+            entity.AddComponent<AnimationComponent>(new AnimationComponent((Animation)args[3]));
             //entity.AddComponent<SelfRotatingPlatformComponent>(new SelfRotatingPlatformComponent());
 
             return entity;

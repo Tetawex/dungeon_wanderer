@@ -62,8 +62,8 @@
     <Compile Include="Systems\RenderingSystem.cs" />
     <Compile Include="Systems\SelfRotatingPlatformtSystem.cs" />
     <Compile Include="Templates\BasicRotatingTerrainTemplate.cs" />
-    <Content Include="Templates\PlayerTemplate.cs" />
     <Compile Include="Templates\BasicTerrainTemplate.cs" />
+    <Compile Include="Templates\PlayerTemplate.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="artemis, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
