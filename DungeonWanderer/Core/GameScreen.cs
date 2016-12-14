@@ -24,7 +24,7 @@ namespace DungeonWanderer.Core
         {
             spriteBatch.Begin(SpriteSortMode.Deferred, null,SamplerState.PointClamp,
                 null,null,null,null);
-            spriteBatch.Draw(background);
+            spriteBatch.Draw(background,new Vector2(0,0));
             entityWorld.Draw();
 
             spriteBatch.End();
