@@ -50,6 +50,7 @@ namespace DungeonWanderer.Core
         protected override void LoadContent()
         {
             AssetManager.TextureManager.LoadContent(Content);
+            AssetManager.AnimationManager.LoadAnimations(AssetManager.TextureManager);
             GameStateManager.CurrentState = GameState.Game;
         }
 
