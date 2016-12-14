@@ -6,6 +6,7 @@ using DungeonWanderer.Components;
 using DungeonWanderer.Systems;
 using Artemis.Manager;
 using DungeonWanderer.Templates;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace DungeonWanderer.Core
 {
@@ -20,7 +21,8 @@ namespace DungeonWanderer.Core
 
         public override void Draw(GameTime gametime)
         {
-            spriteBatch.Begin();
+            spriteBatch.Begin(SpriteSortMode.Deferred, null,SamplerState.PointClamp,
+                null,null,null,null);
 
             entityWorld.Draw();
 
