@@ -62,7 +62,7 @@
     <Compile Include="Systems\RenderingSystem.cs" />
     <Compile Include="Systems\SelfRotatingPlatformtSystem.cs" />
     <Compile Include="Templates\BasicRotatingTerrainTemplate.cs" />
-    <Compile Include="Templates\PlayerTemplate.cs" />
+    <Content Include="Templates\PlayerTemplate.cs" />
     <Compile Include="Templates\BasicTerrainTemplate.cs" />
   </ItemGroup>
   <ItemGroup>
