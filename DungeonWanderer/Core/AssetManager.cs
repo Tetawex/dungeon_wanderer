@@ -46,7 +46,7 @@ namespace DungeonWanderer.Core
             {
                 textureManager.GetTexture("player_stay_0"),
                 textureManager.GetTexture("player_stay_1")
-            },500);
+            },50);
             /*animations["player_fly"] = new Animation(new Texture2D[]
             {
                 textureManager.GetTexture("player_fly_0"),
