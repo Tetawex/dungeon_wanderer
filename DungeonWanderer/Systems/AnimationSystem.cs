@@ -40,6 +40,7 @@ namespace DungeonWanderer.Systems
             if (++animComp.ElapsedTicksBeforeNextFrame > animComp.Animation.TimeBetweenFrames)//increment means increment first, then tell the value
             {
                 animComp.ElapsedTicksBeforeNextFrame = 0;
+                renComp.Texture = animComp.Animation.Textures[animComp.CurrentFrame];
                 if (++animComp.CurrentFrame >= animComp.Animation.Textures.Length)
                 {
                     animComp.CurrentFrame = 0;
