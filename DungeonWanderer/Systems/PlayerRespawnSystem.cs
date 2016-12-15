@@ -23,6 +23,8 @@ namespace DungeonWanderer.Systems
 
         public override void Process(Entity entity, HealthComponent healthComponent,PhysicsComponent physicsComponent)
         {
+            if (physicsComponent.Body.Position.Y <= -40f)
+                healthComponent.Health = 0;
             if (healthComponent.Health <= 0)
             {
                 if (--healthComponent.Lives == 0)
@@ -30,6 +32,7 @@ namespace DungeonWanderer.Systems
                 else
                 {
                     physicsComponent.Body.Position = respawnPosition;
+                    physicsComponent.Body.LinearVelocity = Vector2.Zero;
                     healthComponent.Health = 100;
                 }
             }

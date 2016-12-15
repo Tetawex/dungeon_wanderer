@@ -1,5 +1,5 @@
 {
-	"StartX":1,
+	"StartX":-2,
 	"StartY":4,
 	"EndX":10,
 	"EndY":2,
@@ -14,7 +14,7 @@
 	"Walls":
 	[
 		{
-			"X":0,
+			"X":-1,
 			"Y":1,
 			"DimX":4,
 			"DimY":1,
