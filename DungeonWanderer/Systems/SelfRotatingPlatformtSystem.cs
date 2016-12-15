@@ -9,7 +9,7 @@ namespace DungeonWanderer.Systems
     {
         public override void Process(Entity entity, SelfRotatingPlatformComponent component1, PhysicsComponent component2)
         {
-            component2.Body.Rotation += 0.005f;
+            component2.Body.Rotation += component1.RotationSpeed;
         }
     }
 }

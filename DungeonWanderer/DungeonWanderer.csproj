@@ -41,6 +41,7 @@
     <Compile Include="Components\Animation.cs" />
     <Compile Include="Components\AnimationComponent.cs" />
     <Compile Include="Components\CameraComponent.cs" />
+    <Compile Include="Components\HealthComponent.cs" />
     <Compile Include="Components\JumpComponent.cs" />
     <Compile Include="Components\PlayerControllerComponent.cs" />
     <Compile Include="Components\RenderingComponent.cs" />
@@ -51,6 +52,9 @@
     <Compile Include="Core\GameScreen.cs" />
     <Compile Include="Core\GameStateManager.cs" />
     <Compile Include="Core\Screen.cs" />
+    <Compile Include="Core\ShapeFactory.cs" />
+    <Compile Include="JSON\LevelLoader.cs" />
+    <Compile Include="JSON\LevelModel.cs" />
     <Compile Include="Systems\AnimationSystem.cs" />
     <Compile Include="Systems\CameraUpdateSystem.cs" />
     <Compile Include="Systems\MovementSystem.cs" />
@@ -59,11 +63,13 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Systems\PlayerControllerSystem.cs" />
+    <Compile Include="Systems\PlayerRespawnSystem.cs" />
     <Compile Include="Systems\RenderingSystem.cs" />
     <Compile Include="Systems\SelfRotatingPlatformtSystem.cs" />
-    <Compile Include="Templates\BasicRotatingTerrainTemplate.cs" />
-    <Compile Include="Templates\BasicTerrainTemplate.cs" />
+    <Compile Include="Templates\PlatformTemplate.cs" />
     <Compile Include="Templates\PlayerTemplate.cs" />
+    <Compile Include="Templates\LevelEndTemplate.cs" />
+    <Compile Include="Templates\SpikeTemplate.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="artemis, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -72,6 +78,10 @@
     </Reference>
     <Reference Include="FarseerPhysics MonoGame, Version=3.5.0.40766, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\FarseerPhysics.MonoGame.Unofficial.3.5.0\lib\FarseerPhysics MonoGame.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="OpenTK">
@@ -97,6 +107,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram1.cd" />
+    <None Include="Content\level1.json" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

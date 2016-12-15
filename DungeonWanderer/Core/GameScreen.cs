@@ -7,6 +7,7 @@ using DungeonWanderer.Systems;
 using Artemis.Manager;
 using DungeonWanderer.Templates;
 using Microsoft.Xna.Framework.Graphics;
+using DungeonWanderer.JSON;
 
 namespace DungeonWanderer.Core
 {
@@ -16,6 +17,8 @@ namespace DungeonWanderer.Core
         private Texture2D background;
         private EntityWorld entityWorld;
         private World box2DWorld;
+        public int CurrentLevel { get; set; } = 1;
+
         public GameScreen(DWGame dwgame) : base(dwgame)
         {
         }
@@ -32,6 +35,8 @@ namespace DungeonWanderer.Core
 
         public override void Initialize()
         {
+            LevelModel model = LevelLoader.LoadLevel("level" + CurrentLevel);
+
             box2DWorld = new World(new Vector2(0f, -9.82f));
             entityWorld = new EntityWorld();
 
@@ -41,12 +46,13 @@ namespace DungeonWanderer.Core
             entityWorld.SystemManager.SetSystem<SelfRotatingPlatformtSystem>(new SelfRotatingPlatformtSystem(), GameLoopType.Update);
 
             entityWorld.SetEntityTemplate(PlayerTemplate.Name, new PlayerTemplate());
-            entityWorld.SetEntityTemplate(BasicTerrainTemplate.Name, new BasicTerrainTemplate());
-            entityWorld.SetEntityTemplate(BasicRotatingTerrainTemplate.Name, new BasicRotatingTerrainTemplate());
+            entityWorld.SetEntityTemplate(PlatformTemplate.Name, new PlatformTemplate());
+            entityWorld.SetEntityTemplate(SpikeTemplate.Name, new SpikeTemplate());
+            entityWorld.SetEntityTemplate(LevelEndTemplate.Name, new LevelEndTemplate());
 
             Entity player=entityWorld.CreateEntityFromTemplate(PlayerTemplate.Name, new Vector2(1, 1), box2DWorld, 
                 game.AssetManager.TextureManager.GetTexture("playerbox"), game.AssetManager.AnimationManager.GetAnimation("player_stay"));
-            entityWorld.CreateEntityFromTemplate(BasicTerrainTemplate.Name, new Vector2(1, -2f),
+            entityWorld.CreateEntityFromTemplate(PlatformTemplate.Name, new Vector2(1, -2f),
                 box2DWorld, game.AssetManager.TextureManager.GetTexture("wall_4x1"), 0f);
             entityWorld.CreateEntityFromTemplate(BasicRotatingTerrainTemplate.Name, new Vector2(6, -3f),
                 box2DWorld, game.AssetManager.TextureManager.GetTexture("wall_4x1"), Math.PI / 2);
