@@ -2,7 +2,7 @@
 {
     public enum GameState
     {
-        MainMenu, Game
+        MainMenu, Game,GameOverWon,GameOverLost
     }
     public class GameStateManager
     {
@@ -42,6 +42,16 @@
 
                     case GameState.Game:
                         currentScreen = new GameScreen(game);
+                        currentScreen.Initialize();
+                        currentState = GameState.Game;
+                        break;
+                    case GameState.GameOverWon:
+                        currentScreen = new GameOverScreen(game, true);
+                        currentScreen.Initialize();
+                        currentState = GameState.Game;
+                        break;
+                    case GameState.GameOverLost:
+                        currentScreen = new GameOverScreen(game,false);
                         currentScreen.Initialize();
                         currentState = GameState.Game;
                         break;

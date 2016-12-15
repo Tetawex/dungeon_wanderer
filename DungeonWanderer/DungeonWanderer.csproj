@@ -53,6 +53,7 @@
     <Compile Include="Core\GameStateManager.cs" />
     <Compile Include="Core\Screen.cs" />
     <Compile Include="Core\ShapeFactory.cs" />
+    <Compile Include="Core\GameOverScreen.cs" />
     <Compile Include="JSON\LevelLoader.cs" />
     <Compile Include="JSON\LevelModel.cs" />
     <Compile Include="Systems\AnimationSystem.cs" />
