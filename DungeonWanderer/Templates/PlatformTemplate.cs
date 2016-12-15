@@ -18,14 +18,16 @@ namespace DungeonWanderer.Templates
 
         public Entity BuildEntity(Entity entity, EntityWorld entityWorld, params object[] args)
         {
-            //args:1position,2box2DWorld,3rotation,4dimensions,5rotationSpeed
+            //args:0position,1box2DWorld,2textureManager,3rotation,4dimension,5rotationSpeed
             Vector2 position = (Vector2)args[0];
             World box2DWorld = (World)args[1];
+            TextureManager tm = (TextureManager)args[2];
             float rotation = Convert.ToSingle(args[3]);
+            Vector2 dimension = (Vector2)(args[4]);
             float rotationSpeed = Convert.ToSingle(args[5]);
             Body body = new Body(box2DWorld, Vector2.Zero);
 
-            body.CreateFixture(ShapeFactory.GetShape((Vector2)(args[4])));
+            body.CreateFixture(ShapeFactory.GetShape(dimension));
             body.Friction = 0.1f;
 
             body.FixedRotation = true;
@@ -35,11 +37,11 @@ namespace DungeonWanderer.Templates
             body.Rotation = rotation;
             body.Position = position;
 
-            entity.AddComponent<TransformComponent>(new TransformComponent(position, new Vector2(4f, 1f)));
+            entity.AddComponent<TransformComponent>(new TransformComponent(position, dimension));
             entity.AddComponent<PhysicsComponent>(new PhysicsComponent(body));
-            entity.AddComponent<RenderingComponent>(new RenderingComponent((Texture2D)args[2]));
+            entity.AddComponent<RenderingComponent>(new RenderingComponent(tm.GetTexture("wall_"+(int)dimension.X + "x" + (int)dimension.Y),0.1f));
             if(rotationSpeed!=0)
-                entity.AddComponent<SelfRotatingPlatformComponent>(new SelfRotatingPlatformComponent());
+                entity.AddComponent<SelfRotatingPlatformComponent>(new SelfRotatingPlatformComponent(rotationSpeed));
 
             return entity;
         }

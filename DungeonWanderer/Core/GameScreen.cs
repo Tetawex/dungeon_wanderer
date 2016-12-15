@@ -44,22 +44,34 @@ namespace DungeonWanderer.Core
             entityWorld.SystemManager.SetSystem<CameraUpdateSystem>(new CameraUpdateSystem(game.Graphics), GameLoopType.Update);
             entityWorld.SystemManager.SetSystem<PlayerControllerSystem>(new PlayerControllerSystem(), GameLoopType.Update);
             entityWorld.SystemManager.SetSystem<SelfRotatingPlatformtSystem>(new SelfRotatingPlatformtSystem(), GameLoopType.Update);
+            entityWorld.SystemManager.SetSystem<PlayerRespawnSystem>(new PlayerRespawnSystem(game, new Vector2(model.StartX, model.StartY)), GameLoopType.Update);
 
             entityWorld.SetEntityTemplate(PlayerTemplate.Name, new PlayerTemplate());
             entityWorld.SetEntityTemplate(PlatformTemplate.Name, new PlatformTemplate());
             entityWorld.SetEntityTemplate(SpikeTemplate.Name, new SpikeTemplate());
             entityWorld.SetEntityTemplate(LevelEndTemplate.Name, new LevelEndTemplate());
 
-            Entity player=entityWorld.CreateEntityFromTemplate(PlayerTemplate.Name, new Vector2(1, 1), box2DWorld, 
+            Entity player=entityWorld.CreateEntityFromTemplate(PlayerTemplate.Name, new Vector2(model.StartX, model.StartY), box2DWorld, 
                 game.AssetManager.TextureManager.GetTexture("playerbox"), game.AssetManager.AnimationManager.GetAnimation("player_stay"));
-            entityWorld.CreateEntityFromTemplate(PlatformTemplate.Name, new Vector2(1, -2f),
-                box2DWorld, game.AssetManager.TextureManager.GetTexture("wall_4x1"), 0f);
-            entityWorld.CreateEntityFromTemplate(BasicRotatingTerrainTemplate.Name, new Vector2(6, -3f),
-                box2DWorld, game.AssetManager.TextureManager.GetTexture("wall_4x1"), Math.PI / 2);
+
+            entityWorld.CreateEntityFromTemplate(LevelEndTemplate.Name, new Vector2(model.EndX, model.EndY),
+                box2DWorld, game.AssetManager.TextureManager.GetTexture("treasure"), player,this,game);
+            foreach (Spike s in model.Spikes)
+            {
+                entityWorld.CreateEntityFromTemplate(SpikeTemplate.Name, new Vector2(s.X, s.Y),
+                box2DWorld, s.Rotation, player, game.AssetManager.TextureManager.GetTexture("spike"));
+            }
+            foreach (Wall w in model.Walls)
+            {
+                entityWorld.CreateEntityFromTemplate(PlatformTemplate.Name, new Vector2(w.X, w.Y),
+                box2DWorld, game.AssetManager.TextureManager, w.Rotation, new Vector2(w.DimX, w.DimY), w.RotationSpeed);
+            }
             camera = player.GetComponent<CameraComponent>();
 
             entityWorld.SystemManager.SetSystem<RenderingSystem>(new RenderingSystem(camera, spriteBatch,game.GraphicsDevice), GameLoopType.Draw);
-            entityWorld.SystemManager.SetSystem<AnimationSystem>(new AnimationSystem(), GameLoopType.Update);
+            entityWorld.SystemManager.SetSystem<HUDRenderingSystem>(
+                new HUDRenderingSystem(game.AssetManager.TextureManager.GetTexture("heart"),spriteBatch), GameLoopType.Draw);
+            entityWorld.SystemManager.SetSystem<AnimationSystem>(new AnimationSystem(game.AssetManager.AnimationManager), GameLoopType.Update);
 
             background = game.AssetManager.TextureManager.GetTexture("background");
 

@@ -28,7 +28,10 @@ namespace DungeonWanderer.Systems
                 if (--healthComponent.Lives == 0)
                     game.GameStateManager.CurrentState = GameState.MainMenu;
                 else
+                {
                     physicsComponent.Body.Position = respawnPosition;
+                    healthComponent.Health = 100;
+                }
             }
         }
     }

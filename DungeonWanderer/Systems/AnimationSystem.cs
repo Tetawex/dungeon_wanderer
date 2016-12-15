@@ -1,6 +1,7 @@
 ﻿using Artemis;
 using Artemis.System;
 using DungeonWanderer.Components;
+using DungeonWanderer.Core;
 using Microsoft.Xna.Framework;
 using System;
 using System.Diagnostics;
@@ -10,11 +11,11 @@ namespace DungeonWanderer.Systems
 {
     public class AnimationSystem : IntervalEntityProcessingSystem
     {
-       
-        public AnimationSystem() :
+        private AnimationManager animationManager;
+        public AnimationSystem(AnimationManager animationManager) :
             base(new TimeSpan(0, 0, 0, 0, 1), Aspect.All(typeof(AnimationComponent), typeof(RenderingComponent)))
         {
-
+            this.animationManager = animationManager;
         }
         public override void Process(Entity e)
         {

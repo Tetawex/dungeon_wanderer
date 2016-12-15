@@ -8,27 +8,27 @@ namespace DungeonWanderer.JSON
 {
     public class Spike
     {
-        public double X { get; set; }
-        public double Y { get; set; }
-        public double Rotation { get; set; }
+        public float X { get; set; }
+        public float Y { get; set; }
+        public float Rotation { get; set; }
     }
 
     public class Wall
     {
-        public double X { get; set; }
-        public double Y { get; set; }
-        public double DimX { get; set; }
-        public double DimY { get; set; }
-        public double Rotation { get; set; }
-        public double RotationSpeed { get; set; }
+        public float X { get; set; }
+        public float Y { get; set; }
+        public float DimX { get; set; }
+        public float DimY { get; set; }
+        public float Rotation { get; set; }
+        public float RotationSpeed { get; set; }
     }
 
     public class LevelModel
     {
-        public double StartX { get; set; }
-        public double StartY { get; set; }
-        public double EndX { get; set; }
-        public double EndY { get; set; }
+        public float StartX { get; set; }
+        public float StartY { get; set; }
+        public float EndX { get; set; }
+        public float EndY { get; set; }
         public IList<Spike> Spikes { get; set; }
         public IList<Wall> Walls { get; set; }
     }

@@ -1,0 +1,33 @@
+{
+	"StartX":1,
+	"StartY":4,
+	"EndX":10,
+	"EndY":2,
+	"Spikes":
+	[
+		{
+			"X":4,
+			"Y":1.8,
+			"Rotation":0
+		}
+	],
+	"Walls":
+	[
+		{
+			"X":0,
+			"Y":1,
+			"DimX":4,
+			"DimY":1,
+			"Rotation":0,
+			"RotationSpeed":0
+		},
+		{
+			"X":5,
+			"Y":1,
+			"DimX":4,
+			"DimY":1,
+			"Rotation":0,
+			"RotationSpeed":0
+		}
+	]
+}

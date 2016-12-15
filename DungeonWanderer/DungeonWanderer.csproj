@@ -64,6 +64,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Systems\PlayerControllerSystem.cs" />
     <Compile Include="Systems\PlayerRespawnSystem.cs" />
+    <Compile Include="Systems\HUDRenderingSystem.cs" />
     <Compile Include="Systems\RenderingSystem.cs" />
     <Compile Include="Systems\SelfRotatingPlatformtSystem.cs" />
     <Compile Include="Templates\PlatformTemplate.cs" />
@@ -107,7 +108,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram1.cd" />
-    <None Include="Content\level1.json" />
+    <None Include="level1.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="level2.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

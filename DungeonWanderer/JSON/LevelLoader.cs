@@ -13,7 +13,7 @@ namespace DungeonWanderer.JSON
     {
         public static LevelModel LoadLevel(String name)
         {
-            using (StreamReader sr = new StreamReader("Content/"+name))
+            using (StreamReader sr = new StreamReader(TitleContainer.OpenStream(name + ".json")))
             {
                 return JsonConvert.DeserializeObject<LevelModel>(sr.ReadToEnd());
             };

@@ -67,11 +67,12 @@ namespace DungeonWanderer.Templates
 
             entity.AddComponent<TransformComponent>(pc);
             entity.AddComponent<PhysicsComponent>(new PhysicsComponent(body));
-            entity.AddComponent<RenderingComponent>(new RenderingComponent((Texture2D)args[2]));
+            entity.AddComponent<RenderingComponent>(new RenderingComponent((Texture2D)args[2],1f));
             entity.AddComponent<JumpComponent>(jumpComponent);
             entity.AddComponent<PlayerControllerComponent>(new PlayerControllerComponent());
             entity.AddComponent<CameraComponent>(new CameraComponent(new Vector2(0, 0)));
             entity.AddComponent<AnimationComponent>(new AnimationComponent((Animation)args[3]));
+            entity.AddComponent<HealthComponent>(new HealthComponent());
             //entity.AddComponent<SelfRotatingPlatformComponent>(new SelfRotatingPlatformComponent());
 
             return entity;
