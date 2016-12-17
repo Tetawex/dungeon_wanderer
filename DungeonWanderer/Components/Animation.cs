@@ -11,15 +11,12 @@ namespace DungeonWanderer.Components
         public int TimeBetweenFrames { get; set; }
 
 
-        public Animation(Texture2D[] textures, int timeBetweenFrames)
+        public Animation(Texture2D[] textures)
         {
             Textures = textures;
-            TimeBetweenFrames = timeBetweenFrames;
+           // TimeBetweenFrames = timeBetweenFrames;
         }
 
-        public Animation(int timeBetweenFrames)
-        {
-            TimeBetweenFrames = timeBetweenFrames;
-        }
+      
     }
 }

@@ -13,7 +13,7 @@ namespace DungeonWanderer.Systems
     {
         private AnimationManager animationManager;
         public AnimationSystem(AnimationManager animationManager) :
-            base(new TimeSpan(0, 0, 0, 0, 1), Aspect.All(typeof(AnimationComponent), typeof(RenderingComponent)))
+            base(new TimeSpan(0, 0, 0, 0, 100), Aspect.All(typeof(AnimationComponent), typeof(RenderingComponent)))
         {
             this.animationManager = animationManager;
         }
@@ -23,30 +23,32 @@ namespace DungeonWanderer.Systems
             AnimationComponent animComp = e.GetComponent<AnimationComponent>();
             RenderingComponent renComp = e.GetComponent<RenderingComponent>();
 
-            /*if (animComp.sw.IsRunning)
-                animComp.sw.Start();
+            //if (animComp.sw.IsRunning)
+            //    animComp.sw.Start();
 
-            if (animComp.sw.ElapsedMilliseconds > animComp.Animation.TimeBetweenFrames)
-            {
-                renComp.Texture = animComp.Animation.Textures[animComp.CurrentFrame];
+            //if (animComp.sw.ElapsedMilliseconds > animComp.Animation.TimeBetweenFrames)
+            //{
 
-                if (animComp.CurrentFrame < animComp.Animation.Textures.Length)
-                    animComp.CurrentFrame++;
-                else
-                    animComp.CurrentFrame = animComp.CurrentFrame++ % animComp.Animation.Textures.Length;
+            renComp.Texture = animComp.Animation.Textures[animComp.CurrentFrame++];
+           // animComp.CurrentFrame++;
+            if (animComp.CurrentFrame >= animComp.Animation.Textures.Length)
+                animComp.CurrentFrame = 0;
 
-                animComp.sw.Reset();
-            }*/
+           // else
+
+
+            //    animComp.sw.Reset();
+            //}
             //the code above doesn't really work for some reason, so here's my own:
-            if (++animComp.ElapsedTicksBeforeNextFrame > animComp.Animation.TimeBetweenFrames)//increment means increment first, then tell the value
-            {
-                animComp.ElapsedTicksBeforeNextFrame = 0;
-                renComp.Texture = animComp.Animation.Textures[animComp.CurrentFrame];
-                if (++animComp.CurrentFrame >= animComp.Animation.Textures.Length)
-                {
-                    animComp.CurrentFrame = 0;
-                }
-            }
+            //if (++animComp.ElapsedTicksBeforeNextFrame > animComp.Animation.TimeBetweenFrames)//increment means increment first, then tell the value
+            //{
+            //    animComp.ElapsedTicksBeforeNextFrame = 0;
+            //    renComp.Texture = animComp.Animation.Textures[animComp.CurrentFrame];
+            //    if (++animComp.CurrentFrame >= animComp.Animation.Textures.Length)
+            //    {
+            //        animComp.CurrentFrame = 0;
+            //    }
+            //}
         }
     }
 }

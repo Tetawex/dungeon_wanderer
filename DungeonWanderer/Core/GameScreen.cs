@@ -56,7 +56,7 @@ namespace DungeonWanderer.Core
             entityWorld.SetEntityTemplate(LevelEndTemplate.Name, new LevelEndTemplate());
 
             Entity player=entityWorld.CreateEntityFromTemplate(PlayerTemplate.Name, new Vector2(model.StartX, model.StartY), box2DWorld, 
-                game.AssetManager.TextureManager.GetTexture("playerbox"), game.AssetManager.AnimationManager.GetAnimation("player_stay"));
+                game.AssetManager.TextureManager.GetTexture("player_stay"), game.AssetManager.AnimationManager.GetAnimation("player_run"));
 
             entityWorld.CreateEntityFromTemplate(LevelEndTemplate.Name, new Vector2(model.EndX, model.EndY),
                 box2DWorld, game.AssetManager.TextureManager.GetTexture("treasure"), player,this,game);

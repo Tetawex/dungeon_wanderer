@@ -31,8 +31,25 @@ namespace DungeonWanderer.Core
             textures["treasure"] = contentManager.Load<Texture2D>("treasure");
             textures["spike"] = contentManager.Load<Texture2D>("spike_top");
 
-            textures["player_stay_0"] = contentManager.Load<Texture2D>("player_stay_0");
-            textures["player_stay_1"] = contentManager.Load<Texture2D>("player_stay_1");
+            textures["player_stay"] = contentManager.Load<Texture2D>("player_stay");
+
+            textures["player_run_0"] = contentManager.Load<Texture2D>("player_run_0");
+            textures["player_run_1"] = contentManager.Load<Texture2D>("player_run_1");
+            textures["player_run_2"] = contentManager.Load<Texture2D>("player_run_2");
+            textures["player_run_3"] = contentManager.Load<Texture2D>("player_run_3");
+            textures["player_run_4"] = contentManager.Load<Texture2D>("player_run_4");
+            textures["player_run_5"] = contentManager.Load<Texture2D>("player_run_5");
+            textures["player_run_6"] = contentManager.Load<Texture2D>("player_run_6");
+            textures["player_run_7"] = contentManager.Load<Texture2D>("player_run_7");
+            textures["player_run_8"] = contentManager.Load<Texture2D>("player_run_8");
+            textures["player_run_9"] = contentManager.Load<Texture2D>("player_run_9");
+            textures["player_run_10"] = contentManager.Load<Texture2D>("player_run_10");
+            textures["player_run_11"] = contentManager.Load<Texture2D>("player_run_11");
+            textures["player_run_12"] = contentManager.Load<Texture2D>("player_run_12");
+
+            textures["player_fly"] = contentManager.Load<Texture2D>("player_fly");
+            
+
 
             textures["wall_4x1"] = contentManager.Load<Texture2D>("wall_4x1");
             textures["wall_3x1"] = contentManager.Load<Texture2D>("wall_3x1");
@@ -73,19 +90,22 @@ namespace DungeonWanderer.Core
         {
             animations["player_stay"] = new Animation(new Texture2D[] 
             {
-                textureManager.GetTexture("player_stay_0"),
-                textureManager.GetTexture("player_stay_1")
-            },50);
-            /*animations["player_fly"] = new Animation(new Texture2D[]
+                textureManager.GetTexture("player_stay"),
+                
+            });
+
+            //animations["player_fly"] = new Animation(new Texture2D[]
+            //{
+            //    textureManager.GetTexture("player_fly")
+            //});
+
+            animations["player_run"] = new Animation(new Texture2D[]
             {
-                textureManager.GetTexture("player_fly_0"),
-                textureManager.GetTexture("player_fly_1")
-            },700);
-            animations["player_stay"] = new Animation(new Texture2D[]
-            {
-                textureManager.GetTexture("player_stay_0"),
-                textureManager.GetTexture("player_stay_1")
-            },700);*/
+                textureManager.GetTexture("player_run_0"),
+                textureManager.GetTexture("player_run_1"),
+                textureManager.GetTexture("player_run_2"),
+                textureManager.GetTexture("player_run_3")
+            });
         }
     }
 }
