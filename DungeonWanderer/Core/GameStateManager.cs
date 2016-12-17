@@ -45,15 +45,21 @@
                         currentScreen.Initialize();
                         currentState = GameState.Game;
                         break;
+                    case GameState.CustomGame:
+                        currentScreen = new GameScreen(game);
+                        ((GameScreen)currentScreen).CurrentLevel = -10;
+                        currentScreen.Initialize();
+                        currentState = GameState.CustomGame;
+                        break;
                     case GameState.GameOverWon:
                         currentScreen = new GameOverScreen(game, true);
                         currentScreen.Initialize();
-                        currentState = GameState.Game;
+                        currentState = GameState.GameOverWon;
                         break;
                     case GameState.GameOverLost:
                         currentScreen = new GameOverScreen(game,false);
                         currentScreen.Initialize();
-                        currentState = GameState.Game;
+                        currentState = GameState.GameOverLost;
                         break;
 
                     default:

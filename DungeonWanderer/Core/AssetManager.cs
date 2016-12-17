@@ -25,6 +25,8 @@ namespace DungeonWanderer.Core
             textures["btnQuit"] = contentManager.Load<Texture2D>("btnQuit");
             textures["btnCustom"] = contentManager.Load<Texture2D>("btnCustom");
             textures["background"] = contentManager.Load<Texture2D>("background");
+            textures["loseTex"] = contentManager.Load<Texture2D>("loseTex");
+            textures["winTex"] = contentManager.Load<Texture2D>("winTex");
             textures["heart"] = contentManager.Load<Texture2D>("heart");
             textures["treasure"] = contentManager.Load<Texture2D>("treasure");
             textures["spike"] = contentManager.Load<Texture2D>("spike_top");
@@ -47,7 +49,7 @@ namespace DungeonWanderer.Core
             textures["wall_2x4"] = contentManager.Load<Texture2D>("wall_2x4");
             textures["wall_1x4"] = contentManager.Load<Texture2D>("wall_1x4");
 
-            textures["column"] = contentManager.Load<Texture2D>("column");
+            textures["wall_1x3"] = contentManager.Load<Texture2D>("column");
             textures["background_2x2"] = contentManager.Load<Texture2D>("background_2x2");
             textures["background_3x3"] = contentManager.Load<Texture2D>("background_3x3");
             textures["background_4x4"] = contentManager.Load<Texture2D>("background_4x4");

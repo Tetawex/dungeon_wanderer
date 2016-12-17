@@ -28,7 +28,7 @@ namespace DungeonWanderer.Systems
             if (healthComponent.Health <= 0)
             {
                 if (--healthComponent.Lives == 0)
-                    game.GameStateManager.CurrentState = GameState.MainMenu;
+                    game.GameStateManager.CurrentState = GameState.GameOverLost;
                 else
                 {
                     physicsComponent.Body.Position = respawnPosition;

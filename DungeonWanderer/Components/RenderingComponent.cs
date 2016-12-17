@@ -6,6 +6,7 @@ namespace DungeonWanderer.Components
     public class RenderingComponent : IComponent
     {
         public Texture2D Texture { get; set; }
+        public bool InvertHorizonatally { get; set; } = false;
         public float Z { get; set; } = 1.0f;
         public RenderingComponent(Texture2D  texture)
         {

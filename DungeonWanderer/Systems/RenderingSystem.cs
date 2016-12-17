@@ -25,7 +25,11 @@ namespace DungeonWanderer.Systems
         {
             Vector2 dimension = transformComponent.Dimension * camera.ScalingFactor;
             Vector2 renderingPosition = new Vector2(1, -1) * transformComponent.Position * camera.ScalingFactor + camera.BitmapPosition;
-
+            SpriteEffects effects;
+            if (!renderingComponent.InvertHorizonatally)
+                effects = SpriteEffects.None;
+            else
+                effects = SpriteEffects.FlipHorizontally;
             spriteBatch.Draw(
                  renderingComponent.Texture,
                  renderingPosition,
@@ -36,7 +40,7 @@ namespace DungeonWanderer.Systems
                      renderingComponent.Texture.Width / 2f,
                      renderingComponent.Texture.Height / 2f),
                  new Vector2(dimension.X / renderingComponent.Texture.Width, dimension.Y / renderingComponent.Texture.Height),
-                 SpriteEffects.None,
+                 effects,
                  renderingComponent.Z);
         }
     }

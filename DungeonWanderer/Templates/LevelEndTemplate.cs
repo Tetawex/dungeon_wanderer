@@ -32,7 +32,7 @@ namespace DungeonWanderer.Templates
             .OnCollision += (f1, f2, contact) =>
                 {
                     if (++gs.CurrentLevel > 2 || gs.CurrentLevel < 0)
-                        game.GameStateManager.CurrentState = GameState.MainMenu;
+                        game.GameStateManager.CurrentState = GameState.GameOverWon;
                     else
                         gs.Initialize();
                     return true;

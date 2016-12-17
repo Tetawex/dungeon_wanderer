@@ -35,7 +35,11 @@ namespace DungeonWanderer.Core
 
         public override void Initialize()
         {
-            LevelModel model = LevelLoader.LoadLevel("level" + CurrentLevel);
+            LevelModel model;
+            if (CurrentLevel>0)
+                model = LevelLoader.LoadLevel("level" + CurrentLevel);
+            else
+                model = LevelLoader.LoadLevel("custom");
 
             box2DWorld = new World(new Vector2(0f, -9.82f));
             entityWorld = new EntityWorld();
