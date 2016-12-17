@@ -2,7 +2,7 @@
 {
     public enum GameState
     {
-        MainMenu, Game,GameOverWon,GameOverLost
+        MainMenu, Game,CustomGame,GameOverWon,GameOverLost
     }
     public class GameStateManager
     {
