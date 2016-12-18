@@ -29,7 +29,7 @@ namespace DungeonWanderer.Systems
             //if (animComp.sw.ElapsedMilliseconds > animComp.Animation.TimeBetweenFrames)
             //{
 
-            renComp.Texture = animComp.Animation.Textures[animComp.CurrentFrame++];
+            //renComp.Texture = animComp.Animation.Textures[animComp.CurrentFrame++];
            // animComp.CurrentFrame++;
             if (animComp.CurrentFrame >= animComp.Animation.Textures.Length)
                 animComp.CurrentFrame = 0;
@@ -40,15 +40,15 @@ namespace DungeonWanderer.Systems
             //    animComp.sw.Reset();
             //}
             //the code above doesn't really work for some reason, so here's my own:
-            //if (++animComp.ElapsedTicksBeforeNextFrame > animComp.Animation.TimeBetweenFrames)//increment means increment first, then tell the value
-            //{
-            //    animComp.ElapsedTicksBeforeNextFrame = 0;
-            //    renComp.Texture = animComp.Animation.Textures[animComp.CurrentFrame];
-            //    if (++animComp.CurrentFrame >= animComp.Animation.Textures.Length)
-            //    {
-            //        animComp.CurrentFrame = 0;
-            //    }
-            //}
+            if (++animComp.ElapsedTicksBeforeNextFrame > animComp.Animation.TimeBetweenFrames)//increment means increment first, then tell the value
+            {
+                animComp.ElapsedTicksBeforeNextFrame = 0;
+                renComp.Texture = animComp.Animation.Textures[animComp.CurrentFrame];
+                if (++animComp.CurrentFrame >= animComp.Animation.Textures.Length)
+                {
+                    animComp.CurrentFrame = 0;
+                }
+            }
         }
     }
 }

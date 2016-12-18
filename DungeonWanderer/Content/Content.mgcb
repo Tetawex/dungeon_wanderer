@@ -25,8 +25,6 @@
 /processorParam:TextureFormat=Color
 /build:terrainbox.png
 
-
-
 #begin player_stay.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -435,8 +433,6 @@
 /processorParam:TextureFormat=Color
 /build:background_4x4.png
 
-
-
 #begin background.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -532,4 +528,16 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:heart.png
+
+#begin column.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:column.png
 

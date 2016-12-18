@@ -20,7 +20,7 @@ namespace DungeonWanderer.Core
         }
         public void LoadContent(ContentManager contentManager)
         {
-            textures["playerbox"] = contentManager.Load<Texture2D>("playerbox");
+            //textures["playerbox"] = contentManager.Load<Texture2D>("playerbox");
             textures["btnPlay"] = contentManager.Load<Texture2D>("btnPlay");
             textures["btnQuit"] = contentManager.Load<Texture2D>("btnQuit");
             textures["btnCustom"] = contentManager.Load<Texture2D>("btnCustom");
@@ -94,10 +94,10 @@ namespace DungeonWanderer.Core
                 
             });
 
-            //animations["player_fly"] = new Animation(new Texture2D[]
-            //{
-            //    textureManager.GetTexture("player_fly")
-            //});
+            animations["player_fly"] = new Animation(new Texture2D[]
+            {
+                textureManager.GetTexture("player_fly")
+            });
 
             animations["player_run"] = new Animation(new Texture2D[]
             {

@@ -46,7 +46,7 @@ namespace DungeonWanderer.Core
 
             entityWorld.SystemManager.SetSystem<MovementSystem>(new MovementSystem(box2DWorld), GameLoopType.Update);
             entityWorld.SystemManager.SetSystem<CameraUpdateSystem>(new CameraUpdateSystem(game.Graphics), GameLoopType.Update);
-            entityWorld.SystemManager.SetSystem<PlayerControllerSystem>(new PlayerControllerSystem(), GameLoopType.Update);
+            entityWorld.SystemManager.SetSystem<PlayerControllerSystem>(new PlayerControllerSystem(game.AssetManager.AnimationManager), GameLoopType.Update);
             entityWorld.SystemManager.SetSystem<SelfRotatingPlatformtSystem>(new SelfRotatingPlatformtSystem(), GameLoopType.Update);
             entityWorld.SystemManager.SetSystem<PlayerRespawnSystem>(new PlayerRespawnSystem(game, new Vector2(model.StartX, model.StartY)), GameLoopType.Update);
 
