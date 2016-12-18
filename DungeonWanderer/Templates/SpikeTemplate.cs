@@ -34,7 +34,6 @@ namespace DungeonWanderer.Templates
                     if (f2.Body == pBody || f1.Body == pBody)
                     {
                         player.GetComponent<HealthComponent>().Health = 0;
-                        BasicAudioPlayer.PlaySound("sound_hit");
                     }
                     return true;
                 }; ;

@@ -11,12 +11,12 @@ namespace DungeonWanderer.Core
 {
     public static class BasicAudioPlayer
     {
-        private static Dictionary<String,SoundEffect> sounds;
+        private static Dictionary<String,SoundEffect> sounds=new Dictionary<String, SoundEffect>();
         public static void Initialize(ContentManager manager)
         {
             sounds["sound_jump"]=manager.Load<SoundEffect>("sound_jump");
-            sounds["sound_hit"] = manager.Load<SoundEffect>("sound_hit");
             MediaPlayer.Play(manager.Load<Song>("wote_old"));
+            MediaPlayer.IsRepeating = true;
         }
         public static void PlaySound(String soundName)
         {

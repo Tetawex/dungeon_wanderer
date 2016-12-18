@@ -10,6 +10,7 @@ namespace DungeonWanderer.Systems
     public class PlayerControllerSystem : EntityComponentProcessingSystem<PhysicsComponent, PlayerControllerComponent, JumpComponent,RenderingComponent,AnimationComponent>
     {
         private AnimationManager animationManager;
+        private bool jumpPressed = false;
         public PlayerControllerSystem(AnimationManager manager)
         {
             animationManager = manager;
@@ -40,10 +41,11 @@ namespace DungeonWanderer.Systems
                 physicsComponent.Body.Friction = 4.0f;
                 animationComponent.Animation = animationManager.GetAnimation("player_stay");
             }
-            if ((Keyboard.GetState().IsKeyDown(Keys.Space) ||
-                Keyboard.GetState().IsKeyDown(Keys.Up)) && jumpComponent.Grounded)
+            if (!Keyboard.GetState().IsKeyDown(Keys.Space)) jumpPressed = false;
+            if (Keyboard.GetState().IsKeyDown(Keys.Space)  && jumpComponent.Grounded&&jumpPressed==false)
             {
-                physicsComponent.Body.ApplyLinearImpulse(new Vector2(0f, 6f));
+                jumpPressed = true;
+                physicsComponent.Body.ApplyLinearImpulse(new Vector2(0f, 12.5f));
                 BasicAudioPlayer.PlaySound("sound_jump");
             }
             if(!jumpComponent.Grounded)

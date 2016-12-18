@@ -14,7 +14,7 @@ namespace DungeonWanderer
         /// </summary>
         [STAThread]
         static void Main()
-        {
+       {
            
             using (var game = new DWGame())
                 game.Run();
