@@ -1,33 +1,107 @@
 {
-	"StartX":0,
-	"StartY":4,
-	"EndX":10,
-	"EndY":5,
+	"StartX":4.5,
+	"StartY":6.5,
+	"EndX":1,
+	"EndY":12.5,
 	"Spikes":
 	[
-		{
-			"X":1,
-			"Y":1.8,
+    {
+      "X": 4,
+      "Y": 14,
+      "Rotation": 3.142
+    },
+    {
+      "X": 7,
+      "Y": 12,
+      "Rotation": 0
+    },
+    {
+			"X": 10,
+      "Y": 9,
 			"Rotation":0
 		}
 	],
 	"Walls":
 	[
+    {
+      "X": 4.5,
+      "Y": 3,
+      "DimX": 4,
+      "DimY": 4,
+      "Rotation": 0,
+      "RotationSpeed": 0
+    },
+    {
+      "X": 7,
+      "Y": 6,
+      "DimX": 1,
+      "DimY": 1,
+      "Rotation": 0,
+      "RotationSpeed": 0
+    },
+    {
+      "X": 8.5,
+      "Y": 7.5,
+      "DimX": 1,
+      "DimY": 1,
+      "Rotation": 0,
+      "RotationSpeed": 0
+    },
+    {
+      "X": 10,
+      "Y": 8,
+      "DimX": 1,
+      "DimY": 1,
+      "Rotation": 0,
+      "RotationSpeed": 0
+    },
+    {
+      "X": 11,
+      "Y": 9,
+      "DimX": 1,
+      "DimY": 1,
+      "Rotation": 0,
+      "RotationSpeed": 0
+    },
+    {
+      "X": 7.5,
+      "Y": 11,
+      "DimX": 2,
+      "DimY": 1,
+      "Rotation": 0,
+      "RotationSpeed": 0
+    },
+    {
+      "X": 5,
+      "Y": 11,
+      "DimX": 1,
+      "DimY": 1,
+      "Rotation": 0,
+      "RotationSpeed": 0.05
+    },
+    {
+      "X": 3,
+      "Y": 11,
+      "DimX": 1,
+      "DimY": 1,
+      "Rotation": 0,
+      "RotationSpeed": -0.05
+    },
+    {
+      "X": 4,
+      "Y": 15,
+      "DimX": 1,
+      "DimY": 1,
+      "Rotation": 3.142,
+      "RotationSpeed": 0
+    },
 		{
-			"X":0,
-			"Y":1,
-			"DimX":3,
-			"DimY":2,
-			"Rotation":0,
-			"RotationSpeed":0
-		},
-		{
-			"X":6,
-			"Y":1,
+			"X":0.5,
+			"Y":7,
 			"DimX":4,
 			"DimY":4,
-			"Rotation":0.03,
-			"RotationSpeed":0.01
+			"Rotation":-1.570,
+			"RotationSpeed":0
 		}
 	]
 }
