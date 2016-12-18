@@ -51,6 +51,7 @@ namespace DungeonWanderer.Core
         {
             AssetManager.TextureManager.LoadContent(Content);
             AssetManager.AnimationManager.LoadAnimations(AssetManager.TextureManager);
+            BasicAudioPlayer.Initialize(Content);
             GameStateManager.CurrentState = GameState.MainMenu;
         }
 

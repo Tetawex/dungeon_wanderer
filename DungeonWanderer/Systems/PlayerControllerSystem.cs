@@ -44,6 +44,7 @@ namespace DungeonWanderer.Systems
                 Keyboard.GetState().IsKeyDown(Keys.Up)) && jumpComponent.Grounded)
             {
                 physicsComponent.Body.ApplyLinearImpulse(new Vector2(0f, 6f));
+                BasicAudioPlayer.PlaySound("sound_jump");
             }
             if(!jumpComponent.Grounded)
                 animationComponent.Animation = animationManager.GetAnimation("player_fly");

@@ -541,3 +541,21 @@
 /processorParam:TextureFormat=Color
 /build:column.png
 
+#begin sound_hit.ogg
+/importer:OggImporter
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:sound_hit.ogg
+
+#begin wote_old.ogg
+/importer:OggImporter
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:wote_old.ogg
+
+#begin sound_jump.ogg
+/importer:OggImporter
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:sound_jump.ogg
+

@@ -31,8 +31,11 @@ namespace DungeonWanderer.Templates
             body.CreateFixture(ShapeFactory.GetShape(new Vector2(0.25f,0.25f)))
             .OnCollision += (f1, f2, contact) =>
                 {
-                    if(f2.Body==pBody|| f1.Body == pBody)
+                    if (f2.Body == pBody || f1.Body == pBody)
+                    {
                         player.GetComponent<HealthComponent>().Health = 0;
+                        BasicAudioPlayer.PlaySound("sound_hit");
+                    }
                     return true;
                 }; ;
             body.Friction = 0.1f;
